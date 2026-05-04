@@ -599,6 +599,62 @@
         animation: fadeUp 0.5s 0.55s ease both;
       }
 
+
+/* ─── EMAIL WRAPPER & COPY BUTTON ─── */
+      .email-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .email-text {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-family: "Syne", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .email-text svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+     .copy-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 95, 21, 0.12);
+        color: var(--accent2);
+        border: 1px solid rgba(255, 95, 21, 0.22);
+        padding: 6px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .copy-btn svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
+
+      .copy-btn:hover {
+        background: rgba(255, 95, 21, 0.2);
+        color: var(--accent);
+      }
+      .copy-btn:hover {
+        background: rgba(255, 95, 21, 0.2);
+        color: var(--accent);
+      }
+
+
+
       @media (max-width: 500px) {
         /* --- Keep your existing logic --- */
         .card:nth-child(1) {
@@ -626,11 +682,30 @@
           border-radius: 0; /* Full width looks better on mobile */
         }
       }
+
+      @media (max-width: 500px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .contact-bar {
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        /* Forces the email wrapper to take full width and center it on a new row */
+        .email-wrapper {
+          flex-basis: 100%;
+          justify-content: center;
+          margin-top: 4px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="contact-bar" id="top-contact">
-      <a href="https://wa.me/353000000000" target="_blank" rel="noopener">
+      <a href="https://wa.me/3530830753397" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path
             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
@@ -642,7 +717,7 @@
         WhatsApp
       </a>
       <a
-        href="https://instagram.com/yourusername"
+        href="https://instagram.com/noah22.krobot"
         target="_blank"
         rel="noopener"
       >
@@ -653,20 +728,30 @@
         </svg>
         Instagram
       </a>
-      <a href="mailto:your@email.com">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect x="2" y="4" width="20" height="16" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
-        Gmail
-      </a>
+      
+      <!-- New Email Wrapper -->
+      <div class="email-wrapper">
+        <div class="email-text">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          noah3krobot@gmail.com
+        </div>
+        <button class="copy-btn" onclick="copyEmail('noah3krobot@gmail.com', this)" aria-label="Copy email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- HEADER -->
@@ -694,15 +779,23 @@
     <!-- ITEM GRID -->
     <main class="grid" id="catalog">
       <!-- ─── CARD 1: BIKE ─── -->
-      <article class="card">
+     <article class="card">
         <span class="item-id">#1</span>
 
-        <div class="card-img">🚲</div>
+        <div class="card-img">
+          <img 
+            src="/images/bicikl.png" 
+            width="322" 
+            height="248" 
+            alt="Trek FX 3 City Bike" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+          />
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
+            <h2 class="card-title">Bike + accessories</h2>
             <div style="text-align: right">
-              <span class="card-price">€280</span>
+              <span class="card-price">€130</span>
               <div
                 style="
                   font-size: 0.65rem;
@@ -715,21 +808,30 @@
             </div>
           </div>
           <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
+            The bike comes with a helmet, lock, a pump, and lights.
+            It has a new chain and chain equipment.
           </p>
         </div>
       </article>
 
-      <article class="card">
-        <span class="item-id">#1</span>
 
-        <div class="card-img">🚲</div>
+      <article class="card">
+        <span class="item-id">#2</span>
+
+        <div class="card-img">
+          <img 
+            src="/images/dumbells.png" 
+            width="322" 
+            height="248" 
+            alt="Trek FX 3 City Bike" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+          />
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
+            <h2 class="card-title">Dumbbells</h2>
             <div style="text-align: right">
-              <span class="card-price">€280</span>
+              <span class="card-price">€40</span>
               <div
                 style="
                   font-size: 0.65rem;
@@ -742,21 +844,28 @@
             </div>
           </div>
           <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
+           6x2.5kg, 8x1.5kg
           </p>
         </div>
       </article>
 
-      <article class="card">
-        <span class="item-id">#1</span>
+       <article class="card">
+        <span class="item-id">#3</span>
 
-        <div class="card-img">🚲</div>
+        <div class="card-img">
+          <img 
+            src="/images/jakna.png" 
+            width="322" 
+            height="248" 
+            alt="Trek FX 3 City Bike" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+          />
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
+            <h2 class="card-title">Leather jacket</h2>
             <div style="text-align: right">
-              <span class="card-price">€280</span>
+              <span class="card-price">€50</span>
               <div
                 style="
                   font-size: 0.65rem;
@@ -769,21 +878,27 @@
             </div>
           </div>
           <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
           </p>
         </div>
       </article>
 
       <article class="card">
-        <span class="item-id">#1</span>
+        <span class="item-id">#4</span>
 
-        <div class="card-img">🚲</div>
+        <div class="card-img">
+          <img 
+            src="/images/kindle.png" 
+            width="322" 
+            height="248" 
+            alt="Trek FX 3 City Bike" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+          />
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
+            <h2 class="card-title">Amazon Kindle Paperwhite 2013</h2>
             <div style="text-align: right">
-              <span class="card-price">€280</span>
+              <span class="card-price">€60</span>
               <div
                 style="
                   font-size: 0.65rem;
@@ -796,21 +911,29 @@
             </div>
           </div>
           <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
+            Device supports WiFi.
           </p>
         </div>
       </article>
 
-      <article class="card">
-        <span class="item-id">#1</span>
 
-        <div class="card-img">🚲</div>
+      <article class="card">
+        <span class="item-id">#5</span>
+
+        <div class="card-img">
+          <img 
+            src="/images/ormaric.png" 
+            width="322" 
+            height="248" 
+            alt="Trek FX 3 City Bike" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+          />
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
+            <h2 class="card-title">Nightstand</h2>
             <div style="text-align: right">
-              <span class="card-price">€280</span>
+              <span class="card-price">€25</span>
               <div
                 style="
                   font-size: 0.65rem;
@@ -823,21 +946,28 @@
             </div>
           </div>
           <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
+            
           </p>
         </div>
       </article>
 
       <article class="card">
-        <span class="item-id">#1</span>
+        <span class="item-id">#6</span>
 
-        <div class="card-img">🚲</div>
+        <div class="card-img">
+          <img 
+            src="/images/usisavac.png" 
+            width="322" 
+            height="248" 
+            alt="Trek FX 3 City Bike" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+          />
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
+            <h2 class="card-title">Vacuum Cleaner</h2>
             <div style="text-align: right">
-              <span class="card-price">€280</span>
+              <span class="card-price">€25</span>
               <div
                 style="
                   font-size: 0.65rem;
@@ -850,65 +980,11 @@
             </div>
           </div>
           <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
+          
           </p>
         </div>
       </article>
 
-      <article class="card">
-        <span class="item-id">#1</span>
-
-        <div class="card-img">🚲</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
-            <div style="text-align: right">
-              <span class="card-price">€280</span>
-              <div
-                style="
-                  font-size: 0.65rem;
-                  color: var(--muted);
-                  text-transform: uppercase;
-                "
-              >
-                O.N.O.
-              </div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
-          </p>
-        </div>
-      </article>
-
-      <article class="card">
-        <span class="item-id">#1</span>
-
-        <div class="card-img">🚲</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <h2 class="card-title">Trek FX 3 City Bike</h2>
-            <div style="text-align: right">
-              <span class="card-price">€280</span>
-              <div
-                style="
-                  font-size: 0.65rem;
-                  color: var(--muted);
-                  text-transform: uppercase;
-                "
-              >
-                O.N.O.
-              </div>
-            </div>
-          </div>
-          <p class="card-desc">
-            Lightweight aluminium hybrid perfect for Dublin commuting. Barely
-            used, no scratches.
-          </p>
-        </div>
-      </article>
     </main>
 
     <!-- FOOTER -->
@@ -990,6 +1066,27 @@
           // This ensures smooth animation by calculating the exact height
           panel.style.maxHeight = panel.scrollHeight + "px";
         }
+      }
+
+
+      function copyEmail(email, btnElement) {
+        navigator.clipboard.writeText(email).then(() => {
+          
+          // Visual feedback (Color change only)
+          btnElement.style.background = "rgba(46, 213, 115, 0.15)";
+          btnElement.style.color = "#2ed573";
+          btnElement.style.borderColor = "rgba(46, 213, 115, 0.3)";
+          
+          // Reset back to original after 2 seconds
+          setTimeout(() => {
+            btnElement.style.background = "";
+            btnElement.style.color = "";
+            btnElement.style.borderColor = "";
+          }, 2000);
+
+        }).catch(err => {
+          console.error('Failed to copy: ', err);
+        });
       }
     </script>
   </body>
